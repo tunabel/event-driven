@@ -1,6 +1,6 @@
 package com.example.eventdriven.twitter2kafka.runner.impl;
 
-import com.example.eventdriven.twitter2kafka.config.ConfigData;
+import com.example.eventdriven.config.TwitterToKafkaServiceConfigData;
 import com.example.eventdriven.twitter2kafka.exception.TwitterToKafkaServiceException;
 import com.example.eventdriven.twitter2kafka.listener.TwitterKafkaStatusListener;
 import com.example.eventdriven.twitter2kafka.runner.StreamRunner;
@@ -25,7 +25,7 @@ import twitter4j.TwitterObjectFactory;
 @RequiredArgsConstructor
 public class MockStreamRunnerImpl implements StreamRunner {
 
-  private final ConfigData twitterToKafkaServiceConfigData;
+  private final TwitterToKafkaServiceConfigData twitterToKafkaServiceConfigData;
 
   private final TwitterKafkaStatusListener twitterKafkaStatusListener;
 

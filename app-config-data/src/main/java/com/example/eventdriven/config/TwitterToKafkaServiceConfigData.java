@@ -1,4 +1,4 @@
-package com.example.eventdriven.twitter2kafka.config;
+package com.example.eventdriven.config;
 
 import java.util.List;
 import lombok.Getter;
@@ -10,7 +10,8 @@ import org.springframework.context.annotation.Configuration;
 @Setter
 @Configuration
 @ConfigurationProperties(prefix = "twitter-to-kafka-service")
-public class ConfigData {
+public class TwitterToKafkaServiceConfigData {
+
   private List<String> twitterKeywords;
   private Boolean enableMockTweets;
   private Long mockSleepMs;
