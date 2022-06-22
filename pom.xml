@@ -28,6 +28,7 @@
 		<maven-compiler.version>3.8.0</maven-compiler.version>
 		<twitter4j.version>4.0.7</twitter4j.version>
 		<lombok.version>1.18.24</lombok.version>
+		<avro.version>1.11.0</avro.version>
 	</properties>
 
 	<dependencyManagement>
@@ -58,6 +59,11 @@
 				<scope>provided</scope>
 			</dependency>
 
+			<dependency>
+				<groupId>org.apache.avro</groupId>
+				<artifactId>avro</artifactId>
+				<version>${avro.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -72,11 +78,32 @@
 						<release>11</release>
 					</configuration>
 				</plugin>
-<!--				create executable jarwar file, helps run springboot app, create docker image -->
+				<!--				create executable jarwar file, helps run springboot app, create docker image -->
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
 					<version>${spring-boot.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.avro</groupId>
+					<artifactId>avro-maven-plugin</artifactId>
+					<version>${avro.version}</version>
+					<configuration>
+						<stringType>String</stringType>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>schema</goal>
+							</goals>
+							<configuration>
+								<sourceDirectory>${project.basedir}/src/main/resources/avro/</sourceDirectory>
+								<outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
