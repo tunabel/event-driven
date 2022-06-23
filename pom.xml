@@ -12,10 +12,11 @@
 		<module>common-config</module>
 	</modules>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.0</version>
-	</parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.7.0</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
 	<groupId>com.example</groupId>
 	<artifactId>event-driven</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -44,6 +45,7 @@
 
 	<dependencyManagement>
 		<dependencies>
+      <!-- LOCAL -->
 			<dependency>
 				<groupId>com.example</groupId>
 				<artifactId>app-config-data</artifactId>
@@ -152,46 +154,28 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${maven-compiler.version}</version>
-					<configuration>
-						<release>11</release>
-					</configuration>
-				</plugin>
-				<!--				create executable jarwar file, helps run springboot app, create docker image -->
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-					<version>${spring-boot.version}</version>
-				</plugin>
 
-				<plugin>
-					<groupId>org.apache.avro</groupId>
-					<artifactId>avro-maven-plugin</artifactId>
-					<version>${avro.version}</version>
-					<configuration>
-						<stringType>String</stringType>
-					</configuration>
-					<executions>
-						<execution>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>schema</goal>
-							</goals>
-							<configuration>
-								<sourceDirectory>${project.basedir}/src/main/resources/avro/</sourceDirectory>
-								<outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler.version}</version>
+        <configuration>
+          <release>11</release>
+        </configuration>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <!--				create executable jarwar file, helps run springboot app, create docker image -->
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${spring-boot.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 
 </project>

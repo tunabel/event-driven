@@ -35,7 +35,7 @@ kafka-producer-config:
   #  fast compression type from google
   compression-type: snappy
   #  wait all brokers to acknowledges (1 = current broker, 0 = no need acks)
-  acsk: all
+  acks: all
   #  default size of 16kb
   batch-size: 16384
   #  max size = 16*100
