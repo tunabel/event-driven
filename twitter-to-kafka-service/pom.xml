@@ -38,8 +38,6 @@
     <dependency>
       <groupId>com.example</groupId>
       <artifactId>app-config-data</artifactId>
-      <version>${project.version}</version>
-      <scope>compile</scope>
     </dependency>
 
   </dependencies>
