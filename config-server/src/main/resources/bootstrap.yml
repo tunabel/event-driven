@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///E:/Study/Java/Event Driven with Kafka ELK/event-driven-config-server
+          #          clone repo on startup
+          clone-on-start: true
+      #          fail immediately if cant load config
+      fail-fast: true
