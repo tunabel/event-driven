@@ -19,7 +19,9 @@ spring:
           clone-on-start: true
           #          not master
           default-label: main
-          #          fail immediately if cant load config
+          username: ${GIT_USER}
+          password: ${GIT_PAT}
+      #          fail immediately if cant load config
       fail-fast: true
       #        native:
       #          search-locations: file:////E:/Study/Java/event-driven/config-server-repository

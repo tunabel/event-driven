@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: twitter-to-kafka-service
+  profiles:
+    active: twitter_to_kafka
+  cloud:
+    config:
+#      yml file in config server will have naming as config name (config-client) + profiles active (twitter_to_kafka)
+      name: twitter-to-kafka-service, config-client
+#      location of config server
+      uri: http://localhost:8888
+  config:
+    import: 'configserver:'
+#    activate:
+#      on-profile: twitter_to_kafka
