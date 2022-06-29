@@ -5,3 +5,22 @@ logging:
   level:
     ROOT: INFO
     org.spring.framework.cloud.config: DEBUG
+
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          #          uri: file:////E:/Study/Java/event-driven/config-server-repository
+          uri: https://github.com/tunabel/event-driven-config-server
+          #          clone repo on startup
+          clone-on-start: true
+          #          not master
+          default-label: main
+          #          fail immediately if cant load config
+      fail-fast: true
+      #        native:
+      #          search-locations: file:////E:/Study/Java/event-driven/config-server-repository
+
