@@ -12,7 +12,8 @@
 		<module>common-config</module>
 		<module>config-server</module>
 		<module>kafka/kafka-consumer</module>
-    </modules>
+		<module>kafka-to-elastic-service</module>
+	</modules>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -161,6 +162,11 @@
 				<version>${spring-boot.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-security</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>io.confluent</groupId>
